@@ -1,13 +1,15 @@
-<template>
-  <div id="app">
-    <TopNavbar />
-    <router-view />
-  </div>
-</template>
-
 <script>
 import TopNavbar from '@/components/TopNavbar.vue';
-
+import JSConfetti from 'js-confetti'
+const confetti = new JSConfetti()
+function showConfetti() {
+  confetti.addConfetti()
+}
+confetti.addConfetti({
+   emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸','💃','🕶'],
+   emojiSize: 20,
+})
+showConfetti()
 export default {
   components: {
     TopNavbar
@@ -16,7 +18,24 @@ export default {
 };
 </script>
 
+
+<template>
+  <div id="app">
+    <TopNavbar />
+    <router-view />
+  </div>
+  
+</template>
+
+
+
 <style>
+
+h1 {
+  text-align: center;
+  cursor: pointer;
+  margin-top: 3em;
+}
 #app {
   /* 给予顶部一个足够的空间，等于TopNavbar的高度 */
   /* 这个值应该与TopNavbar组件的实际高度相匹配 */
